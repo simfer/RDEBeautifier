@@ -1,0 +1,10 @@
+{
+	"name" : "sap.river.plugin.tidy.service.Tidy",
+	"description" : "The tidy interface",
+	"methods" : {
+		"tidyUp" : {
+			"description" : "This function will tidy your code"
+		}
+	}
+
+}

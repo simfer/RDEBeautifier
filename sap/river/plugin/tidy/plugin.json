@@ -1,0 +1,40 @@
+{
+    "name": "sap.river.plugin.tidy",
+    "description": "Tidy my code",
+    "requires": {
+        "services": [
+            "command",
+            "commandGroup",
+            "content"
+        ]
+    },
+    "provides": {
+        "interfaces": {
+            "sap.river.plugin.tidy.service.Tidy": "sap.river.plugin.tidy/service/Tidy"    
+        },
+        "services": {
+            "tidy": {
+                "implements": "sap.river.plugin.tidy.service.Tidy",
+                "module": "sap.river.plugin.tidy/service/TidyImpl"
+            }
+        }
+    },
+    "configures": {
+        "services": {
+            "command:commands": [
+                {
+                    "id": "tidy.do",
+                    "label": "Tidy",
+                    "service": "sap.river.plugin.tidy/command/Do"
+                }
+            ],
+            "commandGroup:items": [
+                {
+                    "parent": "edit",
+                    "command": "tidy.do",
+                    "prio": "64"
+                }
+            ]
+        }
+    }
+}
